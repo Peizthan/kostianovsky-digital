@@ -49,15 +49,16 @@ export function Presentation() {
       <ScrollProgress />
 
       <header className="sticky top-0 z-40 border-b border-stone-200/80 bg-background/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-          <a href="#top" className="flex items-center gap-3" aria-label="Kostianovsky home">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-300 bg-white text-[11px] font-bold tracking-[0.2em] text-stone-800">
-              K
-            </div>
-            <div>
-              <div className="text-[10px] uppercase tracking-[0.35em] text-stone-500">Kostianovsky</div>
-              <div className="font-serif text-xl leading-none">2026</div>
-            </div>
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-8">
+          <a href="#top" className="flex shrink-0 items-center" aria-label="Kostianovsky - Inicio">
+            <Image
+              src="/images/logo.jpg"
+              alt="Inmobiliaria Kostianovsky"
+              width={287}
+              height={185}
+              priority
+              className="h-9 w-auto object-contain sm:h-10"
+            />
           </a>
 
           <nav aria-label="Navegación principal" className="hidden items-center gap-5 lg:flex">
@@ -68,7 +69,7 @@ export function Presentation() {
             ))}
           </nav>
 
-          <a href="#contact" className="inline-flex items-center gap-2 rounded-full border border-brand bg-brand px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-brand-dark">
+          <a href="#contact" className="hidden shrink-0 items-center gap-2 rounded-full border border-brand bg-brand px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-brand-dark sm:inline-flex">
             Solicitar reunión
             <ArrowRight size={14} />
           </a>
@@ -645,9 +646,13 @@ export function Presentation() {
         </section>
       </main>
 
-      <a href="#contact" className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-white shadow-[0_20px_50px_rgba(226,0,26,0.35)] transition hover:bg-brand-dark">
-        Solicitar reunión
-        <MousePointer2 size={14} />
+      <a
+        href="#contact"
+        aria-label="Solicitar reunión"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center gap-2 rounded-full bg-brand text-white shadow-[0_20px_50px_rgba(226,0,26,0.35)] transition hover:bg-brand-dark sm:h-auto sm:w-auto sm:px-5 sm:py-3"
+      >
+        <span className="hidden text-[10px] font-semibold uppercase tracking-[0.24em] sm:inline">Solicitar reunión</span>
+        <MousePointer2 size={18} aria-hidden="true" />
       </a>
     </div>
   );
