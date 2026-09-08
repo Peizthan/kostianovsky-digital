@@ -10,7 +10,6 @@ import {
   ChevronRight,
   MapPinned,
   MessageSquareMore,
-  MousePointer2,
   Search,
   TrendingUp,
 } from "lucide-react";
@@ -68,11 +67,6 @@ export function Presentation() {
               </a>
             ))}
           </nav>
-
-          <a href="#contact" className="hidden shrink-0 items-center gap-2 rounded-full border border-brand bg-brand px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-brand-dark sm:inline-flex">
-            Solicitar reunión
-            <ArrowRight size={14} />
-          </a>
         </div>
       </header>
 
@@ -83,7 +77,7 @@ export function Presentation() {
           <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-20 md:px-8 lg:pb-28 lg:pt-28">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} className="max-w-4xl">
               <SectionTag>Kostianovsky 2026</SectionTag>
-              <h1 className="mt-8 font-serif text-5xl leading-[0.9] md:text-7xl lg:text-[7rem]">KOSTIANOVSKY</h1>
+              <h1 className="mt-8 break-words font-serif text-4xl leading-[0.95] sm:text-5xl md:text-7xl lg:text-[7rem] lg:leading-[0.9]">KOSTIANOVSKY</h1>
               <p className="mt-4 max-w-xl text-xl font-medium tracking-[0.12em] text-white md:text-2xl">Ecosistema Digital Inmobiliario</p>
               <p className="mt-8 max-w-xl text-lg leading-8 text-white/80">Una nueva experiencia digital para una inmobiliaria con historia.</p>
               <div className="mt-8 flex flex-wrap gap-3 text-[11px] uppercase tracking-[0.22em] text-white/85">
@@ -241,7 +235,7 @@ export function Presentation() {
                     <p className="text-[10px] uppercase tracking-[0.3em] text-muted">Lote · Asunción</p>
                     <h3 className="mt-2 font-serif text-4xl text-stone-900">USD 185.000</h3>
                   </div>
-                  <button className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">WhatsApp <ArrowRight size={14} /></button>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">WhatsApp <ArrowRight size={14} /></span>
                 </div>
                 <div className="mt-6 grid gap-3 sm:grid-cols-4">
                   {["8.500 m²", "Frente 60 m", "Uso mixto", "Acceso pavimentado"].map((meta) => (
@@ -627,7 +621,7 @@ export function Presentation() {
               <p className="text-[10px] uppercase tracking-[0.3em] text-stone-500">Próximo capítulo</p>
               <h2 className="mt-6 font-serif text-5xl leading-none text-stone-900 md:text-6xl">El próximo capítulo de Kostianovsky.</h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-stone-600">Más de siete décadas construyendo confianza. Ahora es momento de convertir esa trayectoria en una experiencia digital a la altura de la marca.</p>
-              <p className="mt-8 font-serif text-5xl text-stone-900 md:text-7xl">KOSTIANOVSKY 2026</p>
+              <p className="mt-8 break-words font-serif text-3xl text-stone-900 sm:text-5xl md:text-7xl">KOSTIANOVSKY 2026</p>
               <p className="mt-6 text-base tracking-[0.08em] text-stone-600 uppercase">Más información. Más visibilidad. Más oportunidades.</p>
             </div>
           </Reveal>
@@ -635,25 +629,13 @@ export function Presentation() {
 
         <section id="contact" className="border-t border-stone-200 bg-panel py-20">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.28em] text-stone-500">Agenda</p>
-                <h3 className="mt-4 font-serif text-5xl text-stone-900">¿Hablamos?</h3>
-              </div>
-              <a href="#top" className="inline-flex items-center gap-2 rounded-full border border-brand bg-brand px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-white">Solicitar reunión <ArrowRight size={14} /></a>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-stone-500">Agenda</p>
+              <h3 className="mt-4 font-serif text-5xl text-stone-900">¿Hablamos?</h3>
             </div>
           </div>
         </section>
       </main>
-
-      <a
-        href="#contact"
-        aria-label="Solicitar reunión"
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center gap-2 rounded-full bg-brand text-white shadow-[0_20px_50px_rgba(226,0,26,0.35)] transition hover:bg-brand-dark sm:h-auto sm:w-auto sm:px-5 sm:py-3"
-      >
-        <span className="hidden text-[10px] font-semibold uppercase tracking-[0.24em] sm:inline">Solicitar reunión</span>
-        <MousePointer2 size={18} aria-hidden="true" />
-      </a>
     </div>
   );
 }
