@@ -8,6 +8,7 @@ import {
   Building2,
   Camera,
   ChevronRight,
+  ExternalLink,
   MapPinned,
   MessageSquareMore,
   Search,
@@ -15,16 +16,25 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SimpleExplanation } from "@/components/ui/SimpleExplanation";
+import { ExampleBadge } from "@/components/ui/ExampleBadge";
+import { Footer } from "@/components/ui/Footer";
 import {
   conditions,
   contentCategories,
+  exampleNotes,
+  glossary,
   growthSteps,
   investmentTiers,
+  kosvasCase,
+  launchPlan,
   navItems,
   packageHighlights,
   pillars,
+  seoFeatures,
   sections,
   socialFormats,
+  webFeatures,
 } from "@/data/site";
 
 function ScrollProgress() {
@@ -155,12 +165,15 @@ export function Presentation() {
         <section id="web" className="bg-panel py-24 md:py-28">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <Reveal>
-              <SectionHeading eyebrow="04 — Nuevo sitio web" title="De una web institucional a una herramienta comercial." description="Diseño visual personalizado, arquitectura UX, responsive, velocidad, SEO técnico, formularios, WhatsApp, mapas, galerías y foco en la conversión comercial." />
+              <SectionHeading eyebrow="04 — Nuevo sitio web" title="De una web institucional a una herramienta comercial." description="Diseño visual personalizado, estructura pensada para el usuario, adaptación a cualquier pantalla, velocidad, SEO, formularios, WhatsApp, mapas, galerías y foco en la conversión comercial." />
             </Reveal>
 
             <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <Reveal>
                 <div className="rounded-[2rem] border border-stone-200 bg-[#f7f4f0] p-4 shadow-[0_25px_80px_rgba(28,25,23,0.08)]">
+                  <div className="mb-4">
+                    <ExampleBadge variant="propuesta-visual" description={exampleNotes.webMockup} />
+                  </div>
                   <div className="overflow-hidden rounded-[1.5rem] border border-stone-200 bg-white p-4">
                     <div className="mb-4 flex items-center gap-2">
                       <span className="h-2.5 w-2.5 rounded-full bg-stone-300" />
@@ -191,18 +204,14 @@ export function Presentation() {
 
               <Reveal delay={0.08}>
                 <div className="space-y-4">
-                  {[
-                    "Diseño visual personalizado",
-                    "Arquitectura UX",
-                    "Desarrollo responsive",
-                    "Optimización de velocidad",
-                    "SEO técnico inicial",
-                    "Formularios y WhatsApp",
-                    "Google Analytics 4",
-                    "Search Console",
-                  ].map((item) => (
+                  {webFeatures.map((item) => (
                     <div key={item} className="flex items-center gap-3 rounded-full border border-stone-300 bg-white/80 px-4 py-3 text-sm text-stone-700"><span className="flex h-6 w-6 items-center justify-center rounded-full bg-stone-900 text-stone-50"><CheckIcon /></span>{item}</div>
                   ))}
+                </div>
+
+                <div className="mt-5 space-y-3">
+                  <SimpleExplanation term={glossary.ux.term} text={glossary.ux.text} />
+                  <SimpleExplanation term={glossary.responsive.term} text={glossary.responsive.text} />
                 </div>
               </Reveal>
             </div>
@@ -217,6 +226,9 @@ export function Presentation() {
           <div className="grid gap-8 xl:grid-cols-[1.2fr_0.8fr]">
             <Reveal>
               <div className="rounded-[2rem] border border-stone-200 bg-white p-4 shadow-[0_25px_80px_rgba(28,25,23,0.06)] md:p-6">
+                <div className="mb-4">
+                  <ExampleBadge variant="simulacion" description={exampleNotes.propertyListing} />
+                </div>
                 <div className="flex flex-wrap gap-2 pb-4">
                   {[
                     "Ubicación",
@@ -287,6 +299,13 @@ export function Presentation() {
                   </div>
                 ))}
               </div>
+              <div className="mt-8 w-full max-w-xl">
+                <ExampleBadge variant="ejemplo" description={exampleNotes.conversionFunnel} tone="dark" />
+              </div>
+              <div className="mt-6 grid w-full max-w-3xl gap-3 sm:grid-cols-2">
+                <SimpleExplanation term={glossary.lead.term} text={glossary.lead.text} tone="dark" />
+                <SimpleExplanation term={glossary.conversion.term} text={glossary.conversion.text} tone="dark" />
+              </div>
             </div>
           </div>
         </section>
@@ -299,23 +318,21 @@ export function Presentation() {
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <Reveal>
               <div className="space-y-4">
-                {[
-                  "SEO técnico",
-                  "Títulos y metadescripciones",
-                  "URLs optimizadas",
-                  "Contenido indexable",
-                  "Sitemap",
-                  "Google Search Console",
-                  "Optimización local",
-                  "Google Maps",
-                ].map((item) => (
+                {seoFeatures.map((item) => (
                   <div key={item} className="flex items-center gap-3 rounded-2xl border border-stone-200 bg-white px-4 py-3 text-stone-700"><Search size={16} className="text-stone-500" />{item}</div>
                 ))}
+              </div>
+              <div className="mt-5 space-y-3">
+                <SimpleExplanation term={glossary.seo.term} text={glossary.seo.text} />
+                <SimpleExplanation term={glossary.searchConsole.term} text={glossary.searchConsole.text} />
               </div>
             </Reveal>
 
             <Reveal delay={0.08}>
               <div className="rounded-[2rem] border border-stone-200 bg-white p-6 shadow-[0_25px_80px_rgba(28,25,23,0.05)]">
+                <div className="mb-4">
+                  <ExampleBadge variant="simulacion" description={exampleNotes.googleSearch} />
+                </div>
                 <div className="rounded-[1.5rem] border border-stone-200 p-4">
                   <div className="mb-5 flex items-center gap-2 text-stone-400">
                     <div className="h-2.5 w-2.5 rounded-full bg-stone-300" />
@@ -349,6 +366,9 @@ export function Presentation() {
               </div>
 
               <Reveal delay={0.08}>
+                <div className="mb-4">
+                  <ExampleBadge variant="ejemplo" description={exampleNotes.socialContent} />
+                </div>
                 <div className="grid gap-4 md:grid-cols-3">
                   {["/images/property-02.svg", "/images/property-03.svg", "/images/kosvas.svg"].map((src, index) => (
                     <div key={src} className="overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-3 shadow-[0_18px_40px_rgba(41,37,36,0.05)]">
@@ -439,6 +459,9 @@ export function Presentation() {
                   <div className="flex justify-center"><ChevronRight /></div>
                   <div className="rounded-xl bg-stone-700 px-4 py-3">SEGUIMIENTO</div>
                 </div>
+                <div className="mt-5">
+                  <ExampleBadge variant="ejemplo" description={exampleNotes.communityFlow} tone="dark" />
+                </div>
               </div>
             </div>
           </div>
@@ -456,11 +479,17 @@ export function Presentation() {
                   <p className="text-[10px] uppercase tracking-[0.3em] text-stone-500">0{index + 1}</p>
                   <h3 className="mt-4 font-serif text-3xl text-stone-900">{step}</h3>
                   <p className="mt-4 text-sm leading-6 text-stone-600">
-                    {index === 0 ? "Fortalecer la marca y ampliar su presencia." : index === 1 ? "Llevar usuarios a la web con mensajes claros." : index === 2 ? "Generar consultas y captación de leads." : "Volver a impactar a usuarios ya interesados."}
+                    {index === 0 ? "Fortalecer la marca y ampliar su presencia." : index === 1 ? "Llevar usuarios a la web con mensajes claros." : index === 2 ? "Generar consultas de personas interesadas." : "Volver a impactar a usuarios ya interesados."}
                   </p>
                 </div>
               </Reveal>
             ))}
+          </div>
+
+          <div className="mt-6 grid gap-3 md:grid-cols-3">
+            <SimpleExplanation term={glossary.metaAds.term} text={glossary.metaAds.text} />
+            <SimpleExplanation term={glossary.performance.term} text={glossary.performance.text} />
+            <SimpleExplanation term={glossary.remarketing.term} text={glossary.remarketing.text} />
           </div>
         </section>
 
@@ -470,6 +499,10 @@ export function Presentation() {
               <SectionHeading eyebrow="12 — Medición" title="Lo que medimos, podemos mejorar." />
             </Reveal>
 
+            <div className="mb-6">
+              <ExampleBadge variant="ejemplo" description={exampleNotes.metrics} />
+            </div>
+
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {[
                 { label: "Alcance", value: "—" },
@@ -478,7 +511,7 @@ export function Presentation() {
                 { label: "Visitas web", value: "—" },
                 { label: "Consultas", value: "—" },
                 { label: "WhatsApp", value: "—" },
-                { label: "Leads", value: "—" },
+                { label: "Consultas (Leads)", value: "—" },
                 { label: "Resultados de campañas", value: "—" },
               ].map((item) => (
                 <Reveal key={item.label}>
@@ -489,6 +522,10 @@ export function Presentation() {
                 </Reveal>
               ))}
             </div>
+
+            <div className="mt-6">
+              <SimpleExplanation term={glossary.analytics.term} text={glossary.analytics.text} />
+            </div>
           </div>
         </section>
 
@@ -496,6 +533,10 @@ export function Presentation() {
           <Reveal>
             <SectionHeading eyebrow="13 — Fase 2" title="El siguiente paso: automatización comercial." description="Un horizonte de crecimiento orientado a convertir la actividad digital en un sistema comercial más eficiente y medible." />
           </Reveal>
+
+          <div className="mb-6">
+            <ExampleBadge variant="propuesta-visual" description={exampleNotes.crmRoadmap} />
+          </div>
 
           <div className="rounded-[2rem] border border-stone-200 bg-white p-6 shadow-[0_25px_80px_rgba(28,25,23,0.05)] md:p-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -516,14 +557,17 @@ export function Presentation() {
               {[
                 "WhatsApp Business",
                 "Automatizaciones",
-                "Clasificación de leads",
+                "Clasificación de consultas",
                 "Historial de consultas",
                 "Seguimiento de propiedades",
-                "Remarketing",
+                "Volver a contactar (Remarketing)",
                 "Email marketing",
               ].map((item) => (
                 <div key={item} className="rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-700">{item}</div>
               ))}
+            </div>
+            <div className="mt-6">
+              <SimpleExplanation term={glossary.crm.term} text={glossary.crm.text} />
             </div>
           </div>
         </section>
@@ -548,12 +592,15 @@ export function Presentation() {
 
             <Reveal>
               <div className="mt-12 rounded-[2rem] border border-brand-dark bg-brand p-8 text-white shadow-[0_35px_90px_rgba(226,0,26,0.3)]">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-white/80">Plan lanzamiento</p>
-                <h3 className="mt-4 font-serif text-5xl leading-none">Ecosistema Digital Kostianovsky</h3>
-                <p className="mt-4 text-base text-white/80">Web + configuración digital + primer mes de contenido</p>
-                <p className="mt-8 font-serif text-5xl">Gs. 16.500.000</p>
-                <p className="mt-4 text-base text-white/80">Después del lanzamiento:</p>
-                <p className="mt-2 font-serif text-4xl">Gs. 4.500.000 / mes</p>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-white/80">{launchPlan.savingsNote}</p>
+                <h3 className="mt-4 font-serif text-5xl leading-none">{launchPlan.title}</h3>
+                <p className="mt-4 text-base text-white/80">{launchPlan.description}</p>
+                <div className="mt-8 flex flex-wrap items-baseline gap-3">
+                  <p className="font-serif text-2xl text-white/60 line-through">{launchPlan.originalPrice}</p>
+                  <p className="font-serif text-5xl">{launchPlan.price}</p>
+                </div>
+                <p className="mt-4 text-base text-white/80">{launchPlan.afterLabel}</p>
+                <p className="mt-2 font-serif text-4xl">{launchPlan.afterPrice}</p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   {packageHighlights.map((item) => (
                     <span key={item} className="rounded-full border border-white/40 bg-white/15 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-white">{item}</span>
@@ -587,29 +634,54 @@ export function Presentation() {
         <section className="bg-stone-950 py-24 text-stone-50 md:py-28">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <Reveal>
-              <SectionHeading eyebrow="16 — Caso KOSVAS" title="Una metodología que ya aplicamos." description="Diseño web, desarrollo, arquitectura de información, contenido y experiencia digital inmobiliaria." tone="dark" />
+              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-brand-light">16 — Caso KOSVAS</p>
+              <h2 className="font-serif text-4xl leading-none text-white md:text-5xl xl:text-6xl">Caso KOSVAS</h2>
+              <p className="mt-4 text-lg font-medium text-brand-light">Una metodología que ya aplicamos.</p>
+              <p className="mt-5 max-w-3xl text-base leading-7 text-white/80 md:text-lg">{kosvasCase.description}</p>
             </Reveal>
-            <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+
+            <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <Reveal>
                 <div className="rounded-[2rem] border border-stone-700 bg-stone-900 p-4">
-                  <Image src="/images/kosvas.svg" alt="Placeholder del proyecto KOSVAS" width={1200} height={900} className="h-[420px] w-full rounded-[1.5rem] object-cover" />
+                  <div className="mb-4">
+                    <ExampleBadge variant="ejemplo" description={exampleNotes.kosvasVisual} tone="dark" />
+                  </div>
+                  <Image src="/images/kosvas.svg" alt="Vista ilustrativa del proyecto KOSVAS" width={1200} height={900} className="h-[320px] w-full rounded-[1.5rem] object-cover" />
+                  <div className="mt-5 rounded-2xl border border-stone-700 bg-stone-800 px-5 py-4">
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-stone-400">Concepto de marca</p>
+                    <p className="mt-2 font-serif text-2xl italic text-white">&ldquo;{kosvasCase.tagline}&rdquo;</p>
+                  </div>
+                  <a
+                    href={kosvasCase.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-brand-dark"
+                  >
+                    Visitar KOSVAS <ExternalLink size={14} />
+                  </a>
                 </div>
               </Reveal>
+
               <Reveal delay={0.08}>
-                <div className="space-y-4">
-                  {[
-                    "URL: placeholder",
-                    "Screenshots: pendientes",
-                    "Fotografías: por definir",
-                    "Métricas: futuras",
-                    "Diseño web",
-                    "Desarrollo",
-                    "Arquitectura de información",
-                    "Contenido",
-                  ].map((item) => (
-                    <div key={item} className="rounded-2xl border border-stone-700 bg-stone-800 px-4 py-3 text-sm text-stone-200">{item}</div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {kosvasCase.components.map((item) => (
+                    <div key={item.title} className="rounded-2xl border border-stone-700 bg-stone-800 p-5">
+                      <p className="text-sm font-semibold text-white">{item.title}</p>
+                      <p className="mt-2 text-sm leading-6 text-stone-300">{item.text}</p>
+                    </div>
                   ))}
                 </div>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                  {kosvasCase.proofPoints.map((point) => (
+                    <div key={point.title} className="rounded-2xl border border-stone-700 bg-stone-900 px-4 py-3">
+                      <p className="text-[10px] uppercase tracking-[0.24em] text-brand-light">{point.title}</p>
+                      <p className="mt-1 text-sm text-stone-200">{point.text}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-6 text-sm leading-6 text-stone-400">{kosvasCase.proofNote}</p>
               </Reveal>
             </div>
           </div>
@@ -622,20 +694,13 @@ export function Presentation() {
               <h2 className="mt-6 font-serif text-5xl leading-none text-stone-900 md:text-6xl">El próximo capítulo de Kostianovsky.</h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-stone-600">Más de siete décadas construyendo confianza. Ahora es momento de convertir esa trayectoria en una experiencia digital a la altura de la marca.</p>
               <p className="mt-8 break-words font-serif text-3xl text-stone-900 sm:text-5xl md:text-7xl">KOSTIANOVSKY 2026</p>
-              <p className="mt-6 text-base tracking-[0.08em] text-stone-600 uppercase">Más información. Más visibilidad. Más oportunidades.</p>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-7 tracking-[0.02em] text-stone-600">Una propuesta para convertir trayectoria en una experiencia digital moderna.</p>
             </div>
           </Reveal>
         </section>
-
-        <section id="contact" className="border-t border-stone-200 bg-panel py-20">
-          <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.28em] text-stone-500">Agenda</p>
-              <h3 className="mt-4 font-serif text-5xl text-stone-900">¿Hablamos?</h3>
-            </div>
-          </div>
-        </section>
       </main>
+
+      <Footer />
     </div>
   );
 }
