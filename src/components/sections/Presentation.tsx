@@ -93,7 +93,6 @@ export function Presentation() {
               <div className="mt-8 flex flex-wrap gap-3 text-[11px] uppercase tracking-[0.22em] text-white/85">
                 <span>Web</span><span>•</span><span>Contenido</span><span>•</span><span>Redes sociales</span><span>•</span><span>Captación</span>
               </div>
-              <div className="mt-12 inline-flex items-center gap-3 text-sm font-medium text-white">Descubrir la propuesta<ArrowDown size={16} /></div>
             </motion.div>
           </div>
         </section>
@@ -118,7 +117,7 @@ export function Presentation() {
         <section id="ecosistema" className="bg-stone-900 py-24 text-stone-50 md:py-28">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <Reveal>
-              <SectionHeading eyebrow="02 — El desafío" title="Unificar todos los puntos de contacto digitales." description="Una propuesta pensada para que la marca se vea, se entienda y se convierta en oportunidades." align="left" tone="dark" />
+              <SectionHeading eyebrow="02 — El desafío" title="Unificar todos los puntos de contacto digital." description="Una propuesta pensada para que la marca se vea, se entienda y se convierta en oportunidades." align="left" tone="dark" />
             </Reveal>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
